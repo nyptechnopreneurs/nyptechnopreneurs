@@ -1,7 +1,7 @@
 <div align="center">
     <img src="assets/icon-circle.png" width="200"/>
     <h1>NYP Technopreneurship Club</h1>
-    <p>Developing an entrepreneurial mindset across SIT in NYP!</p>
+    <p>Developing an entrepreneurial mindset across the SIT student body with the application of technology.</p>
     <p>
         <a href="https://discord.gg/stWcheqsXY">Discord</a> &bullet;
         <a href="https://chat.whatsapp.com/E0c1KfxYBuD2rOQLzm0JXv">WhatsApp</a> &bullet;
