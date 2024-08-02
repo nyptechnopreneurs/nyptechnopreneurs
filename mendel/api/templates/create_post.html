@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from 'macros.html' import card, input, textarea, button, label %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto bg-white p-8 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">Create a New Post</h1>
+    <form method="POST" action="{{ url_for('create_post') }}">
+        <div class="mb-4">
+            {{ label(for_id='title', label_text='Title:', class_name='block text-gray-700') }}
+            {{ input(name='title', id='title', type='text', attributes={'required': 'true'}) }}
+        </div>
+        <div class="mb-4">
+            {{ label(for_id='content', label_text='Content:', class_name='block text-gray-700') }}
+            {{ textarea(name='content', id='content', attributes={'required': 'true'}) }}
+        </div>
+        <div class="mb-4">
+            {{ label(for_id='school', label_text='School:', class_name='block text-gray-700') }}
+            <select id="school" name="school" class="w-full p-2 border border-gray-300 rounded" required>
+                {% for school in schools %}
+                    <option value="{{ school }}">{{ school }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {{ button(label='Post', variant='default', size='default', attributes={'type': 'submit'}) }}
+    </form>
+</div>
+{% endblock %}

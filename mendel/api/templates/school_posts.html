@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from 'macros.html' import post %}
+
+{% block title %}{{ school_name }}{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">{{ school_name }}</h1>
+<div class="mb-4">
+    <a href="/post" class="p-2 rounded">Create a New Post</a>
+    <a href="/logout" class="ml-4 p-2 rounded">Logout</a>
+</div>
+<ul id="posts-list">
+    {% for post_item in posts %}
+        {{ post(post_item) }}
+    {% endfor %}
+</ul>
+{% endblock %}

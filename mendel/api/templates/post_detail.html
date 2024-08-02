@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% from 'macros.html' import form, button, textarea %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto p-8 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">{{ post.title }}</h1>
+    <p>Posted by {{ post.username }}</p>
+    <p class="mb-4">{{ post.content }}</p>
+    <h2 class="text-xl font-bold mb-2">Comments</h2>
+    <ul id="comments-list">
+        {% for comment in comments %}
+            {% include 'comment_snippet.html' %}
+        {% endfor %}
+    </ul>
+    {{ form(url_for('comment', post_id=post.id), class_name='mt-4', attributes={'hx-post': url_for('comment', post_id=post.id), 'hx-target': '#comments-list', 'hx-swap': 'beforeend'}, content=textarea(name='content', id='content', attributes={'required': 'true'}) ~ button(label='Add Comment', class_name='mt-2 w-full p-2 rounded', attributes={'type': 'submit'})) }}
+</div>
+{% endblock %}

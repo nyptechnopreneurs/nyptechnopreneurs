@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from 'macros.html' import post, comment %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Search Results for "{{ query }}"</h1>
+
+<h2 class="text-xl font-bold mb-2">Posts</h2>
+<ul>
+    {% for p in posts %}
+        {{ post(p) }}
+    {% endfor %}
+</ul>
+
+<h2 class="text-xl font-bold mb-2">Comments</h2>
+<ul>
+    {% for c in comments %}
+        {{ comment(c) }}
+    {% endfor %}
+</ul>
+{% endblock %}
